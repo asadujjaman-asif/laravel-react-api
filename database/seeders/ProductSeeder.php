@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
 {
     public function run(): void
     {
-        $response = Http::get('https://dummyjson.com/products');
+        $response = Http::get('https://dummyjson.com/products?limit=200');
 
         if ($response->successful()) {
             $products = $response->json('products');
