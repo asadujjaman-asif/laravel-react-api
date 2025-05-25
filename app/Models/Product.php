@@ -15,5 +15,17 @@ class Product extends Model
     {
         return $this->belongsToMany(Tag::class, 'product_tags');
     }
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+    public function multi_image()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 
 }
