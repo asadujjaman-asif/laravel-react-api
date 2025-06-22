@@ -25,8 +25,8 @@ class ProductController extends Controller
               $query->select('id','product_id','image_url')
               ->where('is_thumbnail', '0');
             }
-        ])->paginate($limit)
-        ->appends(['limit' => $limit]);
+        ])->paginate(100)
+        ->appends(['limit' => 100]);
 
         $nextPage= $products->currentPage() < $products->lastPage() ? $products->currentPage() + 1 : null;
         return ApiResponse::success(
